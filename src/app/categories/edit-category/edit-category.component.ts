@@ -9,10 +9,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditCategoryComponent implements OnInit {
   //  category:any[];
+   message: string;
   id: any;
   private sub: any;
   editCategory: any[];
   name: string;
+  names: string;
   parent: number;
   categories: any = [];
   parentCategoryId: 0;
@@ -21,7 +23,9 @@ export class EditCategoryComponent implements OnInit {
   parents: [];
   category = {
     'name': '',
-    'parentCategoryId': 0
+    'parentCategoryId': 0,
+    'parentCategoryName': '',
+   'description': ''
   };
   parid: any = {};
 
@@ -41,12 +45,12 @@ export class EditCategoryComponent implements OnInit {
       this.parents = data;
       this.post = data[this.id];
       console.log(this.post);
-      this.getOldVal()
+      this.getOldVal();
     });
   }
 
   getOldVal() {
-    this.name = this.post.name;
+    this.names = this.post.name;
     this.parid = this.post;
   }
 
@@ -54,6 +58,8 @@ export class EditCategoryComponent implements OnInit {
   getNewVal() {
     this.category.name = this.name;
     this.category.parentCategoryId = this.parid.id;
+    this.category.parentCategoryName = this.names;
+    this.category.description = this.message;
     this.service.editCategory(this.category ,parseInt(this.post.id)).subscribe();
   }
 }
