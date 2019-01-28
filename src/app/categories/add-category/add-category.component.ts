@@ -19,6 +19,7 @@ export class AddCategoryComponent implements OnInit {
   parents: [];
  category = {
    'name' : '',
+   'parentCategoryId': 0,
    'parentCategoryName': '',
    'description': ''
 
