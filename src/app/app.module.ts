@@ -14,6 +14,10 @@ import { EditCategoryComponent } from './categories/edit-category/edit-category.
 import { ServicesService } from './services.service';
 import { EditWithParametarComponent } from './edit-with-parametar/edit-with-parametar.component';
 import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ProductService } from './product/product.service';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { CommonModule } from '@angular/common';
@@ -31,6 +35,9 @@ import { HomeComponent } from './home/home.component';
     EditCategoryComponent,
     EditWithParametarComponent,
     HomeComponent,
+    ProductListComponent,
+    ProductAddComponent,
+    ProductEditComponent,
     // BrowserAnimationsModule,
     // ToastrModule.forRoot()
   ],
@@ -42,7 +49,7 @@ import { HomeComponent } from './home/home.component';
 
 
   ],
-  providers: [ServicesService],
+  providers: [ServicesService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

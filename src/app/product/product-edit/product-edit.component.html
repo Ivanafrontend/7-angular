@@ -1,0 +1,107 @@
+<h1>Product edit</h1>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col md-12">
+        <h1>Add Product</h1>
+        <p>Picture*</p>
+        <img
+          src="http://atpoint.com.ua/wp-content/themes/noo-citilights/assets/images/default-avatar.png"
+          width="100px;"
+          height="120px;"
+        />
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <br />
+            <button type="button" class="btn btn-success mr-2">Upload a File</button>
+            <button type="button" class="btn btn-danger">Remove a Picture</button>
+          </div>
+        </div>
+        <!--Form-->
+        <div class="row form-group">
+          <div class="col-md-6 ">
+            <form class="text-center">
+              <div class="row">
+                <div class="col-md-8">
+                  <!-- Name -->
+                  <label for="parent">Name:</label>
+                  <input
+                    type="text"
+                    id="name" name="name"
+                    class="form-control mb-4"
+                    [(ngModel)]= "name"
+                    placeholder="Name"
+                  />
+
+                  <!-- Categories -->
+                  <label for="Categories"> categories:</label>
+                  <select class="form-control custom-select custom-select-lg mb-3"
+                  placeholder="Categories" [(ngModel)]="categoryId"
+                   name="categoryId">
+                   <option *ngFor="let category of categories"></option>
+
+                  </select>
+
+                  <input
+                    type="text"
+                    id="categories" name="categories"
+                    class="form-control mb-4"
+                    [(ngModel)]="categoryId"
+                    placeholder="Categories"
+                  />
+
+                  <!-- Manufacturer -->
+                  <input
+                    type="text"
+                    id="manufacturer" name="manufacturer"
+                    class="form-control mb-4"
+                    [(ngModel)]="manufacturer"
+                    placeholder="Manufacturer"
+                  />
+
+                  <!-- Available -->
+                  <div class="row">
+                    <div class="col-md-6 mx-auto d-flex justify-content-center">
+                      <div class="custom-control custom-checkbox mb-4">
+                        <input type="checkbox" id="available" name="available" class="custom-control-input" [(ngModel)]= "available"/>
+                        <label class="custom-control-label">Available</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Short-description -->
+              <div class="form-group">
+                <textarea
+                  class="form-control rounded-0"
+                  [(ngModel)]="shortDescription"
+                  id="shortD" name="shortD"
+
+                  rows="3"
+                  placeholder="Enter Product Short Description"
+                ></textarea>
+              </div>
+
+              <!-- Full Descripiption -->
+              <div class="form-group">
+                <textarea
+                  class="form-control rounded-0"
+                  [(ngModel)]= " fullDescription"
+                  id="fullD" name="fullD"
+
+                  rows="4"
+                  placeholder="Enter Product Full Description"
+                ></textarea>
+              </div>
+
+              <!-- Send button -->
+              <button class="btn btn-info mr-2 " type="submit" type="submit" (click)=" onSubmit()" value="Submit">Save</button>
+              <button class="btn btn-info " type="submit">Cancel</button>
+            </form>
+          </div>
+        </div>
+        <!--form-end-->
+      </div>
+    </div>
+  </div>
+

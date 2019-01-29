@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { Router } from '@angular/router';
@@ -19,7 +20,6 @@ export class AddCategoryComponent implements OnInit {
   parents: [];
  category = {
    'name' : '',
-   'parentCategoryId': 0,
    'parentCategoryName': '',
    'description': ''
 

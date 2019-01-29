@@ -26,7 +26,7 @@ export class ServicesService {
     return this.http.delete('http://localhost:3000/categories' + '/' + id);
 
   }
-  editCategory(category , id){
-    return this.http.put('http://localhost:3000/categories' + '/' + id, category)
+  editCategory(category , id) {
+    return this.http.put('http://localhost:3000/categories' + '/' + id, category);
   }
   }

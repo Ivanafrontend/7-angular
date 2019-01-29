@@ -14,7 +14,6 @@ export class EditCategoryComponent implements OnInit {
   private sub: any;
   editCategory: any[];
   name: string;
-  names: string;
   parent: number;
   categories: any = [];
   parentCategoryId: 0;
@@ -50,7 +49,7 @@ export class EditCategoryComponent implements OnInit {
   }
 
   getOldVal() {
-    this.names = this.post.name;
+    this.name = this.post.name;
     this.parid = this.post;
   }
 
@@ -58,8 +57,8 @@ export class EditCategoryComponent implements OnInit {
   getNewVal() {
     this.category.name = this.name;
     this.category.parentCategoryId = this.parid.id;
-    this.category.parentCategoryName = this.names;
+    this.category.parentCategoryName = this.name;
     this.category.description = this.message;
-    this.service.editCategory(this.category ,parseInt(this.post.id)).subscribe();
+    this.service.editCategory(this.category, parseInt(this.post.id)).subscribe();
   }
 }
