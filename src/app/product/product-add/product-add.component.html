@@ -8,13 +8,31 @@
         width="100px;"
         height="120px;"
       />
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <br />
-          <button type="button" class="btn btn-success mr-2">Upload a File</button>
-          <button type="button" class="btn btn-danger">Remove a Picture</button>
-        </div>
+      <!--
+      <form #imageForm = ngForm>
+          <div class="row">
+              <div class="col-md-4 mb-4">
+                <br />
+                <button type="button" class="btn btn-success mr-2">Upload a File</button>
+                <button type="button" class="btn btn-danger">Remove a Picture</button>
+              </div>
+            </div>
+
+      </form>
+    -->
+    <!--
+      <div class="image-form">
+        <input
+          style="display: none"
+          type="file"
+          (change)="onFileChanged($event)"
+          #fileInput
+        />
+        <button (click)="fileInput.click()">Select File</button>
+        <button (click)="onUpload()">Upload!</button>
       </div>
+    -->
+
       <!--Form-->
       <div class="row form-group">
         <div class="col-md-6 ">
@@ -25,9 +43,10 @@
                 <label for="parent">Name:</label>
                 <input
                   type="text"
-                  id="name" name="name"
+                  id="name"
+                  name="name"
                   class="form-control mb-4"
-                  [(ngModel)]= "name"
+                  [(ngModel)]="name"
                   placeholder="Name"
                 />
 
@@ -44,7 +63,8 @@
 
                 <input
                   type="text"
-                  id="categories" name="categories"
+                  id="categories"
+                  name="categories"
                   class="form-control mb-4"
                   [(ngModel)]="categoryId"
                   placeholder="Categories"
@@ -53,7 +73,8 @@
                 <!-- Manufacturer -->
                 <input
                   type="text"
-                  id="manufacturer" name="manufacturer"
+                  id="manufacturer"
+                  name="manufacturer"
                   class="form-control mb-4"
                   [(ngModel)]="manufacturer"
                   placeholder="Manufacturer"
@@ -63,7 +84,13 @@
                 <div class="row">
                   <div class="col-md-6 mx-auto d-flex justify-content-center">
                     <div class="custom-control custom-checkbox mb-4">
-                      <input type="checkbox" id="available" name="available" class="custom-control-input" [(ngModel)]= "available"/>
+                      <input
+                        type="checkbox"
+                        id="available"
+                        name="available"
+                        class="custom-control-input"
+                        [(ngModel)]="available"
+                      />
                       <label class="custom-control-label">Available</label>
                     </div>
                   </div>
@@ -76,8 +103,8 @@
               <textarea
                 class="form-control rounded-0"
                 [(ngModel)]="shortDescription"
-                id="shortD" name="shortD"
-
+                id="shortD"
+                name="shortD"
                 rows="3"
                 placeholder="Enter Product Short Description"
               ></textarea>
@@ -87,16 +114,24 @@
             <div class="form-group">
               <textarea
                 class="form-control rounded-0"
-                [(ngModel)]= " fullDescription"
-                id="fullD" name="fullD"
-
+                [(ngModel)]="fullDescription"
+                id="fullD"
+                name="fullD"
                 rows="4"
                 placeholder="Enter Product Full Description"
               ></textarea>
             </div>
 
             <!-- Send button -->
-            <button class="btn btn-info mr-2 " type="submit" type="submit" (click)="onSubmit()" value="Submit">Save</button>
+            <button
+              class="btn btn-info mr-2 "
+              type="submit"
+              type="submit"
+              (click)="onSubmit()"
+              value="Submit"
+            >
+              Save
+            </button>
             <button class="btn btn-info " type="submit">Cancel</button>
           </form>
         </div>

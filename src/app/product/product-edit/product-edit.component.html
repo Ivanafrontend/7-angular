@@ -95,7 +95,9 @@
               </div>
 
               <!-- Send button -->
-              <button class="btn btn-info mr-2 " type="submit" type="submit" (click)=" onSubmit()" value="Submit">Save</button>
+              <button  [routerLink]="['/product']" (click)="getNewVal()" class="btn btn-success btn-sm">Save</button>
+
+
               <button class="btn btn-info " type="submit">Cancel</button>
             </form>
           </div>

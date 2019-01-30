@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { ServicesService } from './services.service';
-import { EditWithParametarComponent } from './edit-with-parametar/edit-with-parametar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
@@ -33,7 +32,6 @@ import { ProductService } from './product/product.service';
     ShopingListComponent,
     AddCategoryComponent,
     EditCategoryComponent,
-    EditWithParametarComponent,
     HomeComponent,
     ProductListComponent,
     ProductAddComponent,

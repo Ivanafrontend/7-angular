@@ -12,13 +12,16 @@
 
 }
 ul li{
-   
-    padding: 20px;
+
+    padding: 10px;
     border-bottom:1px solid #AF9AB2;
+}
+ul li:hover{
+  background-color: #AF9AB2;
 }
 ul li a{
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
 }
 .product {
     border-bottom: 1px solid black;
@@ -39,10 +42,10 @@ ul li a{
     }
     .right-side{
         background-color: #AF9AB2;
-    
+
     }
     ul li{
-       
+
         padding: 10px;
         border-bottom:1px solid #AF9AB2;
     }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { ProductService } from 'src/app/product/product.service';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-product-add',
@@ -9,7 +8,10 @@ import { ProductService } from 'src/app/product/product.service';
   styleUrls: ['./product-add.component.scss']
 })
 export class ProductAddComponent implements OnInit {
+  // for image
+  selectedFile: File = null;
 
+// for add
   name: string;
   categories: string;
   manufacturer: string;
@@ -43,5 +45,24 @@ export class ProductAddComponent implements OnInit {
 
     });
   }
+  // onFileSelected(event) {
+  //   this.selectedFile = event.target.files[0];
+  //   console.log(event);
+
+  // }
+  // onFileChanged(event) {
+  //   this.selectedFile = <File>event.target.files[0];
+  // }
+  // onUpload() {
+  //   const fd = new FormData();
+  //   fd.append('image', this.selectedFile, this.selectedFile.name);
+  //   this.service.Post('http://localhost:3000/product', fd, { reportProgress: true,
+  //     observe : 'events'
+  //   }).subscribe(event => {
+  //     {console.log(event);
+  //     }
+  //   });
+
+  // }
 
 }
