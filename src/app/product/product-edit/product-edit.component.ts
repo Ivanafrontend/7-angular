@@ -12,7 +12,7 @@ export class ProductEditComponent implements OnInit {
   name: string;
   categories: string;
   manufacturer: string;
-  available: boolean;
+  isAvailable: boolean;
   shortDescription: string;
   fullDescription: string;
   categoryId: 0;
@@ -26,22 +26,24 @@ export class ProductEditComponent implements OnInit {
     'shortDescription' : '',
     'fullDescription' : '',
     'categoryId': 0,
+    'isAvailable': true
+
   };
   productId: any = {};
 
   constructor(public service: ProductService, public router: ActivatedRoute) { }
 
   ngOnInit() {
-    this.subject = this.router.data.subscribe(data => {
-      console.log(data);
-      this.id = data.id;
+    this.subject = this.router.params.subscribe(params => {
+      console.log(params);
+      this.id = params.id;
     });
     this.get();
   }
   get() {
     this.service.getPost().subscribe(data => {
       this.products = data;
-      this.post = data[this.id];
+      this.post = data[parseInt(this.id)];
       console.log(this.post);
       this.getOldVal();
     });

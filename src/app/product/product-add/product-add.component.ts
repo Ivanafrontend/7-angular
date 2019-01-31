@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/product/product.service';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 import { FormArray } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
   styleUrls: ['./product-add.component.scss']
 })
-export class ProductAddComponent implements OnInit {
-  // for image
-  selectedFile: File = null;
 
-// for add
+export class ProductAddComponent implements OnInit {
+
+  // for image
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: Observable<any>;
+  uploadState: Observable<string>;
+
+// for add in table
   name: string;
   categories: string;
   manufacturer: string;
@@ -28,11 +38,31 @@ export class ProductAddComponent implements OnInit {
 
   };
 
- constructor(public service: ProductService) {
+ constructor(public service: ProductService, private afStorage: AngularFireStorage ) {
+  }
+   // upload image
+   upload(event) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id); // start reference
+    this.task = this.ref.put(event.target.files[0]);
+    this.uploadState = this.task.snapshotChanges ().pipe(map(s => s.state)) ;
+    this.uploadProgress = this.task.percentageChanges();
+    this.downloadURL = this.ref.getDownloadURL();
+    this.downloadURL.subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log('error');
+      }
+    );
   }
 
   ngOnInit() {
   }
+
+
+
   onSubmit() {
      this.product.name = this.name;
      this.product.manufacturer = this.manufacturer;

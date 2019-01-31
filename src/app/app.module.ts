@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { FormsModule, } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,7 +45,16 @@ import { ProductService } from './product/product.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyBdzb24zVKB08K0d1TLLw-c3Yk0xjBtGnY',
+      authDomain: 'upload-file-bc9b4.firebaseapp.com',
+      databaseURL: 'https://upload-file-bc9b4.firebaseio.com',
+      projectId: 'upload-file-bc9b4',
+      storageBucket: 'upload-file-bc9b4.appspot.com',
+      messagingSenderId: '764413170807'
+    }),
+    AngularFireStorageModule
 
 
   ],
